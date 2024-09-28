@@ -16,12 +16,11 @@ import Adduniversity from './pages/Adduniversity';
 import Manageuniversity from './pages/ManageUniversity';
 import Addcourse from './pages/Addcourse';
 import Managecourses from './pages/Managecourses';
-import BulkUpload from './pages/Managestudents';
 import Createuser from './pages/Createuser';
 import Createspoc from './pages/Createspoc';
 import Managespoc from './pages/Managespoc';
-
-
+import AssessmentCreation from './pages/AssessmentCreation';
+import ManageAssessments from './pages/ManageAssesments';
 
 function App() {
 
@@ -42,10 +41,11 @@ function App() {
         <Route path="/manage_university" element={<Manageuniversity />} />
         <Route path="/add_course" element={<Addcourse />} />
         <Route path="/manage_course" element={<Managecourses />} />
-        <Route path="/manage_students" element={<BulkUpload />} />
         <Route path="/create_user" element={<Createuser />} />
         <Route path="/create_spoc" element={<Createspoc />} />
         <Route path="/manage_spoc" element={<Managespoc />} />
+        <Route path="/create-assessment" element={<AssessmentCreation />} />
+        <Route path="/manage-assessments" element={<ManageAssessments />} />
       </Routes>
     </>
   );
