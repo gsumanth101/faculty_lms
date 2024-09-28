@@ -16,10 +16,20 @@ function ManageAssessments() {
   const fetchAssessments = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:4000/assessments/manage');
+      const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:4000';
+      const response = await axios.get(`${baseUrl}/assessments/manage`);
+      console.log('Fetched assessments:', response.data);
       setAssessments(response.data);
     } catch (error) {
       console.error('Error fetching assessments:', error);
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+        console.error('Error status:', error.response.status);
+      } else if (error.request) {
+        console.error('Error request:', error.request);
+      } else {
+        console.error('Error message:', error.message);
+      }
       setAssessments([]);
     } finally {
       setIsLoading(false);
@@ -28,7 +38,8 @@ function ManageAssessments() {
 
   const fetchAssessmentDetails = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:4000/assessments/${id}/details`);
+      const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:4000';
+      const response = await axios.get(`${baseUrl}/assessments/${id}/details`);
       setSelectedAssessment(response.data);
     } catch (error) {
       console.error('Error fetching assessment details:', error);

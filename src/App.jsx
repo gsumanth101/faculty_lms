@@ -21,6 +21,7 @@ import Createspoc from './pages/Createspoc';
 import Managespoc from './pages/Managespoc';
 import AssessmentCreation from './pages/AssessmentCreation';
 import ManageAssessments from './pages/ManageAssesments';
+import AssessmentResults from './pages/AssessmentResults';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/manage_spoc" element={<Managespoc />} />
         <Route path="/create-assessment" element={<AssessmentCreation />} />
         <Route path="/manage-assessments" element={<ManageAssessments />} />
+        <Route path="/assessment-results" element={<AssessmentResults/>} />
       </Routes>
     </>
   );
