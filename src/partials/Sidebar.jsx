@@ -512,6 +512,111 @@ function Sidebar({ sidebarOpen, setSidebarOpen, variant = "default" }) {
                   );
                 }}
               </SidebarLinkGroup>
+              <SidebarLinkGroup activecondition={pathname.includes("assessment")}>
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <a
+                        href="#0"
+                        className={`block text-gray-800 dark:text-gray-100 truncate transition duration-150 ${pathname.includes("assessment")
+                            ? ""
+                            : "hover:text-gray-900 dark:hover:text-white"
+                          }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleClick();
+                          setSidebarExpanded(true);
+                        }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <svg
+                              className={`shrink-0 h-6 w-6 ${
+                                pathname.includes('assessment') ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600'
+                              }`}
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                              />
+                            </svg>
+                            <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                              Assesments
+                            </span>
+                          </div>
+                          {/* Icon */}
+                          <div className="flex shrink-0 ml-2">
+                            <svg
+                              className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 ${open && "rotate-180"
+                                }`}
+                              viewBox="0 0 12 12"
+                            >
+                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                        <ul className={`pl-8 mt-1 ${!open && "hidden"}`}>
+                          <li className="mb-1 last:mb-0">
+                            <NavLink
+                              end
+                              to="/create-assessment"
+                              className={({ isActive }) =>
+                                "block transition duration-150 truncate " +
+                                (isActive
+                                  ? "text-violet-500"
+                                  : "text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200")
+                              }
+                            >
+                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                Create Assesment
+                              </span>
+                            </NavLink>
+                          </li>
+                          <li className="mb-1 last:mb-0">
+                            <NavLink
+                              end
+                              to="/manage-assessments"
+                              className={({ isActive }) =>
+                                "block transition duration-150 truncate " +
+                                (isActive
+                                  ? "text-violet-500"
+                                  : "text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200")
+                              }
+                            >
+                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                Manage Assessments
+                              </span>
+                            </NavLink>
+                          </li>
+                          {/* <li className="mb-1 last:mb-0">
+                            <NavLink
+                              end
+                              to="#"
+                              className={({ isActive }) =>
+                                "block transition duration-150 truncate " +
+                                (isActive
+                                  ? "text-violet-500"
+                                  : "text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200")
+                              }
+                            >
+                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                Transaction Details
+                              </span>
+                            </NavLink>
+                          </li> */}
+                        </ul>
+                      </div>
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
               {/* Job Board */}
               <SidebarLinkGroup activecondition={pathname.includes("job")}>
                 {(handleClick, open) => {
