@@ -46,6 +46,14 @@ function ManageAssessments() {
     }
   };
 
+  const formatDate = (dateString) => {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    return date instanceof Date && !isNaN(date) 
+      ? date.toLocaleString()
+      : 'Invalid Date';
+  };
+
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -89,7 +97,7 @@ function ManageAssessments() {
                     {selectedAssessment.completedStudents.map((student, index) => (
                       <li key={index} className="mb-1">
                         Student ID: {student.studentId} | Score: {student.score} | 
-                        Submitted: {new Date(student.submittedAt).toLocaleString()}
+                        Submitted: {formatDate(student.submittedAt)}
                       </li>
                     ))}
                   </ul>
